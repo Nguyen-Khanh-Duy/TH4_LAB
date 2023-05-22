@@ -16,23 +16,23 @@ tinhTongSoLuongLoaiGiaoDich(danhSachGiaoDich);
 // Tính trung bình thành tiền của giao dịch đất
 tinhTrungBinhThanhTienDat(danhSachGiaoDich);
 
-// Xuất ra các giao dịch của tháng 9 năm 2013
-xuatGiaoDichThang9Nam2013(danhSachGiaoDich);
+// Xuất ra các giao dịch của tháng 5 năm 2023
+xuatGiaoDichThang5Nam203(danhSachGiaoDich);
 }
 
 private static void nhapDanhSachGiaoDich(List<GiaoDich> danhSachGiaoDich) {
 // Nhập thông tin giao dịch đất
-GiaoDich giaoDichDat1 = new GiaoDichDat("GD001", new NgayThang(10, 9, 2013), 1000000, 200, "A");
+GiaoDich giaoDichDat1 = new GiaoDichDat("GD001", new NgayThang(19, 5, 2023), 1000000, 200, "A");
 danhSachGiaoDich.add(giaoDichDat1);
 
-GiaoDich giaoDichDat2 = new GiaoDichDat("GD002", new NgayThang(15, 9, 2013), 800000, 150, "B");
+GiaoDich giaoDichDat2 = new GiaoDichDat("GD002", new NgayThang(20, 5, 2023), 800000, 150, "B");
 danhSachGiaoDich.add(giaoDichDat2);
 
 // Nhập thông tin giao dịch nhà
-GiaoDich giaoDichNha1 = new GiaoDichNha("GD003", new NgayThang(20, 9, 2013), 1500000, 100, "cao cap", "123 ABC Street");
+GiaoDich giaoDichNha1 = new GiaoDichNha("GD003", new NgayThang(21, 5, 2023), 1500000, 100, "cao cap", "123 ABC Street");
 danhSachGiaoDich.add(giaoDichNha1);
 
-GiaoDich giaoDichNha2 = new GiaoDichNha("GD004", new NgayThang(25, 9, 2013), 1200000, 120, "thuong", "456 XYZ Street");
+GiaoDich giaoDichNha2 = new GiaoDichNha("GD004", new NgayThang(22, 5, 2023), 1200000, 120, "thuong", "456 XYZ Street");
 danhSachGiaoDich.add(giaoDichNha2);
 }
 
@@ -73,10 +73,10 @@ private static void tinhTrungBinhThanhTienDat(List<GiaoDich> danhSachGiaoDich) {
     System.out.println("Trung binh thanh tien cua giao dich dat: " + trungBinhThanhTienDat);
 }
 
-private static void xuatGiaoDichThang9Nam2013(List<GiaoDich> danhSachGiaoDich) {
-    System.out.println("Cac giao dich cua thang 9 nam 2013:");
+private static void xuatGiaoDichThang5Nam2013(List<GiaoDich> danhSachGiaoDich) {
+    System.out.println("Cac giao dich cua thang 5 nam 203:");
     for (GiaoDich giaoDich : danhSachGiaoDich) {
-        if (giaoDich.ngayGiaoDich.thang == 9 && giaoDich.ngayGiaoDich.nam == 2013) {
+        if (giaoDich.ngayGiaoDich.thang == 5 && giaoDich.ngayGiaoDich.nam == 2023) {
             giaoDich.inThongTin();
             System.out.println();
         }
