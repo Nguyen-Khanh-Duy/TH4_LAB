@@ -17,7 +17,7 @@ public class GiaoDichNha extends GiaoDich {
         if (loaiNha.equalsIgnoreCase("cao cấp")) {
             return super.tinhThanhTien();
         } else {
-            return dienTich * donGia * 0.9;
+            return dienTich * donGia * 0.9 ;
         }
     }
 }
