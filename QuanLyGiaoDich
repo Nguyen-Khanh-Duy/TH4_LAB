@@ -1,0 +1,85 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class QuanLyGiaoDich {
+public static void main(String[] args) {
+List<GiaoDich> danhSachGiaoDich = new ArrayList<>(); // Nhập danh sách giao dịch
+nhapDanhSachGiaoDich(danhSachGiaoDich);
+
+// Xuất danh sách giao dịch
+xuatDanhSachGiaoDich(danhSachGiaoDich);
+
+// Tính tổng số lượng cho từng loại
+tinhTongSoLuongLoaiGiaoDich(danhSachGiaoDich);
+
+// Tính trung bình thành tiền của giao dịch đất
+tinhTrungBinhThanhTienDat(danhSachGiaoDich);
+
+// Xuất ra các giao dịch của tháng 9 năm 2013
+xuatGiaoDichThang9Nam2013(danhSachGiaoDich);
+}
+
+private static void nhapDanhSachGiaoDich(List<GiaoDich> danhSachGiaoDich) {
+// Nhập thông tin giao dịch đất
+GiaoDich giaoDichDat1 = new GiaoDichDat("GD001", new NgayThang(10, 9, 2013), 1000000, 200, "A");
+danhSachGiaoDich.add(giaoDichDat1);
+
+GiaoDich giaoDichDat2 = new GiaoDichDat("GD002", new NgayThang(15, 9, 2013), 800000, 150, "B");
+danhSachGiaoDich.add(giaoDichDat2);
+
+// Nhập thông tin giao dịch nhà
+GiaoDich giaoDichNha1 = new GiaoDichNha("GD003", new NgayThang(20, 9, 2013), 1500000, 100, "cao cap", "123 ABC Street");
+danhSachGiaoDich.add(giaoDichNha1);
+
+GiaoDich giaoDichNha2 = new GiaoDichNha("GD004", new NgayThang(25, 9, 2013), 1200000, 120, "thuong", "456 XYZ Street");
+danhSachGiaoDich.add(giaoDichNha2);
+}
+
+private static void xuatDanhSachGiaoDich(List<GiaoDich> danhSachGiaoDich) {
+System.out.println("Danh sach giao dich:");
+for (GiaoDich giaoDich : danhSachGiaoDich) {
+    giaoDich.inThongTin();
+    System.out.println();
+}
+}
+
+private static void tinhTongSoLuongLoaiGiaoDich(List<GiaoDich> danhSachGiaoDich) {
+int soLuongGiaoDichDat = 0;
+int soLuongGiaoDichNha = 0;
+
+for (GiaoDich giaoDich : danhSachGiaoDich) {
+    if (giaoDich instanceof GiaoDichDat) {
+        soLuongGiaoDichDat++;
+    } else if (giaoDich instanceof GiaoDichNha) {
+    	soLuongGiaoDichNha++;
+    }
+    } System.out.println("Tong so luong giao dich dat: " + soLuongGiaoDichDat);
+    System.out.println("Tong so luong giao dich nha: " + soLuongGiaoDichNha);
+}
+
+private static void tinhTrungBinhThanhTienDat(List<GiaoDich> danhSachGiaoDich) {
+    double tongThanhTienDat = 0;
+    int soLuongGiaoDichDat = 0;
+
+    for (GiaoDich giaoDich : danhSachGiaoDich) {
+        if (giaoDich instanceof GiaoDichDat) {
+            tongThanhTienDat += giaoDich.tinhThanhTien();
+            soLuongGiaoDichDat++;
+        }
+    }
+
+    double trungBinhThanhTienDat = tongThanhTienDat / soLuongGiaoDichDat;
+    System.out.println("Trung binh thanh tien cua giao dich dat: " + trungBinhThanhTienDat);
+}
+
+private static void xuatGiaoDichThang9Nam2013(List<GiaoDich> danhSachGiaoDich) {
+    System.out.println("Cac giao dich cua thang 9 nam 2013:");
+    for (GiaoDich giaoDich : danhSachGiaoDich) {
+        if (giaoDich.ngayGiaoDich.thang == 9 && giaoDich.ngayGiaoDich.nam == 2013) {
+            giaoDich.inThongTin();
+            System.out.println();
+        }
+    }
+}
+}
