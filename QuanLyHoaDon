@@ -1,0 +1,83 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+public class QuanLyHoaDon {
+    private List<KhachHang> danhSachHoaDon;
+
+    public QuanLyHoaDon() {
+        danhSachHoaDon = new ArrayList<>();
+    }
+
+    // Phương thức thêm hoá đơn vào danh sách
+    public void themHoaDon(KhachHang hoaDon) {
+        danhSachHoaDon.add(hoaDon);
+    }
+
+    // Phương thức tính tổng số lượng cho từng loại khách hàng
+    public double tinhTongSoLuongKhachHangVietNam() {
+        double tongSoLuong = 0;
+        for (KhachHang khachHang : danhSachHoaDon) {
+            if (khachHang instanceof KhachHangVietNam) {
+                tongSoLuong += ((KhachHangVietNam) khachHang).getSoLuong();
+            }
+        }
+        return tongSoLuong;
+    }
+
+    // Phương thức tính trung bình thành tiền của khách hàng nước ngoài
+    public double tinhTrungBinhThanhTienKhachHangNuocNgoai() {
+        double tongThanhTien = 0;
+        int soLuongKhachHangNuocNgoai = 0;
+        for (KhachHang khachHang : danhSachHoaDon) {
+            if (khachHang instanceof KhachHangNuocNgoai) {
+                tongThanhTien += khachHang.tinhThanhTien();
+                soLuongKhachHangNuocNgoai++;
+            }
+        }
+        if (soLuongKhachHangNuocNgoai > 0) {
+            return tongThanhTien / soLuongKhachHangNuocNgoai;
+        } else {
+            return 0;
+        }
+    }
+
+    // Phương thức xuất ra các hoá đơn trong tháng 9 năm 2013
+    public void xuatHoaDonThangChinNam2013() {
+        for (KhachHang hoaDon : danhSachHoaDon) {
+            NgayThangNam ngayRaHoaDon = hoaDon.getNgayRaHoaDon();
+            if (ngayRaHoaDon.getThang() == 9 && ngayRaHoaDon.getNam() == 2013) {
+                System.out.println("Ma khach hang: " + hoaDon.getMaKhachHang());
+                System.out.println("Ho ten: " + hoaDon.getHoTen());
+                System.out.println("Ngay ra hoa don: " + ngayRaHoaDon.getNgay() + "/" +
+                        ngayRaHoaDon.getThang() + "/" + ngayRaHoaDon.getNam());
+                if (hoaDon instanceof KhachHangVietNam) {
+                    System.out.println("Doi tuong khach hang: " + ((KhachHangVietNam) hoaDon).getDoiTuongKhachHang());
+                    System.out.println("So luong: " + ((KhachHangVietNam) hoaDon).getSoLuong());
+                } else if (hoaDon instanceof KhachHangNuocNgoai) {
+                    System.out.println("Quoc tich: " + ((KhachHangNuocNgoai) hoaDon).getQuocTich());
+                    System.out.println("So luong: " + ((KhachHangNuocNgoai) hoaDon).getSoLuong());
+                }
+                System.out.println("------------------------");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        QuanLyHoaDon quanLyHoaDon = new QuanLyHoaDon();
+
+        // Thêm các hoá đơn vào danh sách
+        quanLyHoaDon.themHoaDon(new KhachHangVietNam("KH001", "Tran Minh Hop",
+                new NgayThangNam(1, 9, 2013), "sinh hoat", 200, 2000, 150));
+        quanLyHoaDon.themHoaDon(new KhachHangNuocNgoai("KH002", "John Smith",
+                new NgayThangNam(15, 9, 2013), "USA", 100, 2500));
+        quanLyHoaDon.themHoaDon(new KhachHangVietNam("KH003", "Nguyen Khanh Duy",
+                new NgayThangNam(10, 9, 2013), "kinh doanh", 300, 2000, 200));
+
+        // Tính và hiển thị kết quả
+        System.out.println("Tong so luong khach hang Viet Nam: " + quanLyHoaDon.tinhTongSoLuongKhachHangVietNam());
+        System.out.println("Trung binh thanh tien cua khach hang nuoc ngoai: " +
+                quanLyHoaDon.tinhTrungBinhThanhTienKhachHangNuocNgoai());
+        System.out.println("Hoa don trong thnag 9 nam 2013:");
+        quanLyHoaDon.xuatHoaDonThangChinNam2013();
+    }
+}
