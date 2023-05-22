@@ -1,0 +1,28 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class NgayThangNam {
+    private int ngay;
+    private int thang;
+    private int nam;
+
+    public NgayThangNam(int ngay, int thang, int nam) {
+        this.ngay = ngay;
+        this.thang = thang;
+        this.nam = nam;
+    }
+
+    public int getNgay() {
+        return ngay;
+    }
+
+    public int getThang() {
+        return thang;
+    }
+
+    public int getNam() {
+        return nam;
+    }
+}
+
