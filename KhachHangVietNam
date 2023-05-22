@@ -1,0 +1,48 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class KhachHangVietNam extends KhachHang {
+    private String doiTuongKhachHang;
+    private double soLuong;
+    private double donGia;
+    private double dinhMuc;
+
+    public KhachHangVietNam(String maKhachHang, String hoTen, NgayThangNam ngayRaHoaDon, String doiTuongKhachHang,
+                            double soLuong, double donGia, double dinhMuc) {
+        super(maKhachHang, hoTen, ngayRaHoaDon);
+        this.doiTuongKhachHang = doiTuongKhachHang;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+        this.dinhMuc = dinhMuc;
+    }
+
+    public String getDoiTuongKhachHang() {
+        return doiTuongKhachHang;
+    }
+
+    public double getSoLuong() {
+        return soLuong;
+    }
+
+    public double getDonGia() {
+        return donGia;
+    }
+
+    public double getDinhMuc() {
+        return dinhMuc;
+    }
+
+    // Override phương thức tính thành tiền
+    @Override
+    public double tinhThanhTien() {
+        double thanhTien;
+        if (soLuong <= dinhMuc) {
+            thanhTien = soLuong * donGia;
+        } else {
+            double soLuongVuotDinhMuc = soLuong - dinhMuc;
+            thanhTien = dinhMuc * donGia + soLuongVuotDinhMuc * donGia * 2.5;
+        }
+        return thanhTien;
+    }
+}
