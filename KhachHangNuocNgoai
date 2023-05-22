@@ -1,0 +1,35 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class KhachHangNuocNgoai extends KhachHang {
+    private String quocTich;
+    private double soLuong;
+    private double donGia;
+
+    public KhachHangNuocNgoai(String maKhachHang, String hoTen, NgayThangNam ngayRaHoaDon, String quocTich,
+                             double soLuong, double donGia) {
+        super(maKhachHang, hoTen, ngayRaHoaDon);
+        this.quocTich = quocTich;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+    }
+
+    public String getQuocTich() {
+        return quocTich;
+    }
+
+    public double getSoLuong() {
+        return soLuong;
+    }
+
+    public double getDonGia() {
+        return donGia;
+    }
+
+    // Override phương thức tính thành tiền
+    @Override
+    public double tinhThanhTien() {
+        return soLuong * donGia;
+    }
+}
