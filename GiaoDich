@@ -1,0 +1,31 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GiaoDich {
+    protected String maGiaoDich;
+    protected NgayThang ngayGiaoDich;
+    protected double donGia;
+    protected double dienTich;
+    protected double thanhTien;
+
+    public GiaoDich(String maGiaoDich, NgayThang ngayGiaoDich, double donGia, double dienTich) {
+        this.maGiaoDich = maGiaoDich;
+        this.ngayGiaoDich = ngayGiaoDich;
+        this.donGia = donGia;
+        this.dienTich = dienTich;
+        this.thanhTien = 0;
+    }
+
+    public double tinhThanhTien() {
+        return dienTich * donGia;
+    }
+
+    public void inThongTin() {
+        System.out.println("Ma giao dich: " + maGiaoDich);
+        System.out.println("Ngay giao dich: " + ngayGiaoDich.toString());
+        System.out.println("Don gia: " + donGia);
+        System.out.println("Dien tich: " + dienTich);
+        System.out.println("Thanh tien: " + thanhTien);
+    }
+}
