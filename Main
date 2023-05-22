@@ -1,0 +1,59 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+public class Main {
+    public static void main(String[] args) {
+        // Tạo danh sách học viên
+        List<DiemHocVien> danhSachHocVien = new ArrayList<>();
+        danhSachHocVien.add(new DiemHocVien("Nguyen Van A", 1990, 8, 9, 7, 8, 9));
+        danhSachHocVien.add(new DiemHocVien("Tran Thi B", 1992, 6, 7, 8, 9, 5));
+        danhSachHocVien.add(new DiemHocVien("Le Van C", 1991, 7, 6, 5, 4, 5));
+        danhSachHocVien.add(new DiemHocVien("Pham Thi D", 1993, 7, 8, 9, 7, 8));
+
+        // Đếm số lượng học viên làm luận văn tốt nghiệp
+        int soLuongLuanVan = 0;for (DiemHocVien hocVien : danhSachHocVien) {
+            if (hocVien.getDiemTrungBinh() > 7 && !hocVien.coMonDuoi5Diem()) {
+                soLuongLuanVan++;
+            }
+        }
+
+        System.out.println("So luong hoc vien lam luan van tot nghiep: " + soLuongLuanVan);
+
+        // Đếm số lượng học viên thi tốt nghiệp
+        int soLuongThiTotNghiep = 0;
+        for (DiemHocVien hocVien : danhSachHocVien) {
+            if (hocVien.getDiemTrungBinh() <= 7 && !hocVien.coMonDuoi5Diem()) {
+                soLuongThiTotNghiep++;
+            }
+        }
+
+        System.out.println("So luong hoc vien thi tot nghiep: " + soLuongThiTotNghiep);
+
+        // Đếm số lượng học viên thi lại và tên các môn thi lại
+        int soLuongThiLai = 0;
+        List<String> monThiLai = new ArrayList<>();
+        for (DiemHocVien hocVien : danhSachHocVien) {
+            if (hocVien.coMonDuoi5Diem()) {
+                soLuongThiLai++;
+                if (hocVien.getDiemMon1() < 5) {
+                    monThiLai.add("Mon 1");
+                }
+                if (hocVien.getDiemMon2() < 5) {
+                    monThiLai.add("Mon 2");
+                }
+                if (hocVien.getDiemMon3() < 5) {
+                    monThiLai.add("Mon 3");
+                }
+                if (hocVien.getDiemMon4() < 5) {
+                    monThiLai.add("Mon 4");
+                }
+                if (hocVien.getDiemMon5() < 5) {
+                    monThiLai.add("Mon 5");
+                }
+            }
+        }
+
+        System.out.println("So luong hoc vien thi lai: " + soLuongThiLai);
+        System.out.println("Cac mon thi lai: " + monThiLai);
+    }
+}
