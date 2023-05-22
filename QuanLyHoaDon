@@ -41,11 +41,11 @@ public class QuanLyHoaDon {
         }
     }
 
-    // Phương thức xuất ra các hoá đơn trong tháng 9 năm 2013
-    public void xuatHoaDonThangChinNam2013() {
+    
+    public void xuatHoaDonThangNamNam2023() {
         for (KhachHang hoaDon : danhSachHoaDon) {
             NgayThangNam ngayRaHoaDon = hoaDon.getNgayRaHoaDon();
-            if (ngayRaHoaDon.getThang() == 9 && ngayRaHoaDon.getNam() == 2013) {
+            if (ngayRaHoaDon.getThang() == 9 && ngayRaHoaDon.getNam() == 2023) {
                 System.out.println("Ma khach hang: " + hoaDon.getMaKhachHang());
                 System.out.println("Ho ten: " + hoaDon.getHoTen());
                 System.out.println("Ngay ra hoa don: " + ngayRaHoaDon.getNgay() + "/" +
@@ -67,17 +67,17 @@ public class QuanLyHoaDon {
 
         // Thêm các hoá đơn vào danh sách
         quanLyHoaDon.themHoaDon(new KhachHangVietNam("KH001", "Tran Minh Hop",
-                new NgayThangNam(1, 9, 2013), "sinh hoat", 200, 2000, 150));
+                new NgayThangNam(19, 5, 2023), "sinh hoat", 200, 2000, 150));
         quanLyHoaDon.themHoaDon(new KhachHangNuocNgoai("KH002", "John Smith",
-                new NgayThangNam(15, 9, 2013), "USA", 100, 2500));
+                new NgayThangNam(20, 5, 2023), "USA", 100, 2500));
         quanLyHoaDon.themHoaDon(new KhachHangVietNam("KH003", "Nguyen Khanh Duy",
-                new NgayThangNam(10, 9, 2013), "kinh doanh", 300, 2000, 200));
+                new NgayThangNam(22, 5, 2023), "kinh doanh", 300, 2000, 200));
 
         // Tính và hiển thị kết quả
         System.out.println("Tong so luong khach hang Viet Nam: " + quanLyHoaDon.tinhTongSoLuongKhachHangVietNam());
         System.out.println("Trung binh thanh tien cua khach hang nuoc ngoai: " +
                 quanLyHoaDon.tinhTrungBinhThanhTienKhachHangNuocNgoai());
-        System.out.println("Hoa don trong thnag 9 nam 2013:");
-        quanLyHoaDon.xuatHoaDonThangChinNam2013();
+        System.out.println("Hoa don trong thang 5 nam 2023:");
+        quanLyHoaDon.xuatHoaDonThangNamNam2013();
     }
 }
