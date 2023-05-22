@@ -18,7 +18,7 @@ public class GiaoDich {
     }
 
     public double tinhThanhTien() {
-        return dienTich * donGia;
+        return dienTich * donGia ;
     }
 
     public void inThongTin() {
