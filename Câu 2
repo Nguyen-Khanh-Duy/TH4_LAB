@@ -1,0 +1,32 @@
+package thuchanh4;
+import java.util.ArrayList;
+import java.util.List;
+
+public class KhachHang {
+    protected String maKhachHang;
+    protected String hoTen;
+    protected NgayThangNam ngayRaHoaDon;
+
+    public KhachHang(String maKhachHang, String hoTen, NgayThangNam ngayRaHoaDon) {
+        this.maKhachHang = maKhachHang;
+        this.hoTen = hoTen;
+        this.ngayRaHoaDon = ngayRaHoaDon;
+    }
+
+    public String getMaKhachHang() {
+        return maKhachHang;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public NgayThangNam getNgayRaHoaDon() {
+        return ngayRaHoaDon;
+    }
+
+    // Phương thức trừu tượng tính thành tiền
+    public double tinhThanhTien() {
+        return 0.0;
+    }
+}
